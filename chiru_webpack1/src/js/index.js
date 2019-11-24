@@ -1,9 +1,14 @@
 import '../scss/index.scss';
 
-const aaa = () => {
-	const a = 'chiru';
+const promise = new Promise((resolve) => {
 
-	return a;
-};
+	setTimeout(()=> {
+		console.log('成功');
+		resolve('OK');
+	}, 3000);
+});
 
-console.log(aaa());
+
+promise.then(response => {
+	console.log(response);
+});
