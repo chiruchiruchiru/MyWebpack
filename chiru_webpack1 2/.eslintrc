@@ -1,0 +1,23 @@
+{
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+  },
+  "rules": {
+    "semi": "error",
+    "no-extra-semi": "warn",
+    "quotes": ["warn", "single"],
+    "space-before-blocks": ["warn", {"functions": "always"}]
+  },
+  "globals": {
+    "alert": false,
+    "document": false,
+    "$": false,
+    "console": false
+  },
+}
