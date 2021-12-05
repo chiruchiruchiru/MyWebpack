@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        echo "${params.text}"
+        sh '''
+        cp -r chiru_webpack1/src/ chiru_webpack1 2/src/
+        '''
       }
     }
   }
