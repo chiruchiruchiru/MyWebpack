@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       steps {
         sh '''
-        cp -r chiru_webpack1/src/ chiru_webpack1 2/src/
+        cp -r chiru_webpack1/src/ chiru_webpack2/src/
         '''
       }
     }
