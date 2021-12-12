@@ -1,35 +1,14 @@
 pipeline { // Declarative pipelineであることを宣言する
-  agent any // 環境の指定（anyなので指定なし）
-  stages{
-      stage("build"){
-          steps{
-            echo "Start build!"
-          }
-          //ステップ終了処理
-          post{
-              //常に実行
-              always{
-                echo "========End build!========"
-              }
-              //成功時
-              success{
-                  echo "========Success!!========"
-              }
-              //失敗時
-              failure{
-                echo "========Fail……========"
-              }
-          }
-      }
-      stage("check"){
-        steps{
-          echo 'checking'
+  agent any
+    stages {
+        stage('Example Username/Password') {
+            environment {
+                SERVICE_CREDS = credentials('github-credentials-username-password')
+            }
+            steps {
+                sh 'echo "Service user is $SERVICE_CREDS_USR"'
+                sh 'echo "Service password is $SERVICE_CREDS_PSW"'
+            }
         }
-      }
     }
-  post{
-    always{
-      echo "========Finish========"
-    }
-  }
 }
