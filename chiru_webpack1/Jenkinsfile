@@ -10,13 +10,13 @@ pipeline { // Declarative pipelineであることを宣言する
         CLONE_RESULT = sh(script: "git clone ${git_url} ${repo_name}", returnStatus: true) == 0
       }
       steps {
-        try {
-          if(!CLONE_RESULT) {
-            error "cloneに失敗しました"
-          }
-        } catch (err) {
-          err_msg = "${err}"
-        }
+        // try {
+        //   if(!CLONE_RESULT) {
+        //     error "cloneに失敗しました"
+        //   }
+        // } catch (err) {
+        //   err_msg = "${err}"
+        // }
       }
     }
   }
