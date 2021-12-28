@@ -1,14 +1,12 @@
 pipeline { // Declarative pipelineであることを宣言する
   environment {
-    git_url = "git@github.com:chiruchiruchiru/MyWebpack.git"
-    repo_name = "jenkins-pipeline-sample"
-
+    AWS_ACCESS_KEY_ID = credentials('github-credentials')
   }
   agent any
   stages {
     stage("get resource") {
       steps {
-        sh "echo aaa"
+        git(credentialsId: "${AWS_ACCESS_KEY_ID_USER}", url: 'git@github.com:chiruchiruchiru/MyWebpack.git')
       }
     }
   }
