@@ -1,23 +1,20 @@
 pipeline { // Declarative pipelineであることを宣言する
   agent any
   stages {
-    stage('Example Username/Password') {
-        environment {
-            SERVICE_CREDS = credentials('github-credentials');
+
+    stage("get resource") {
+      def git_url = "git@github.com:chiruchiruchiru/MyWebpack.git"
+      def repo_name = "jenkins-pipeline-sample"
+
+      def CLONE_RESULT = sh(script: "git clone ${git_url} ${repo_name}", returnStatus: true) == 0
+
+      try {
+        if(!CLONE_RESULT) {
+          error "cloneに失敗しました"
         }
-        steps {
-            sh 'echo "Service user is $SERVICE_CREDS_USR"'
-            sh 'echo "Service password is $SERVICE_CREDS_PSW"'
-        }
-    }
-    stage('bb') {
-        environment {
-            SERVICE_CREDS = credentials('github-credentials');
-        }
-        steps {
-            sh 'echo "Service user is $SERVICE_CREDS_USR"'
-            sh 'echo "Service password is $SERVICE_CREDS_PSW"'
-        }
+      } catch (err) {
+        err_msg = "${err}"
+      }
     }
   }
 }
