@@ -6,9 +6,7 @@ pipeline { // Declarative pipelineであることを宣言する
   stages {
     stage("get resource") {
       steps {
-        sh "echo ${SERVICE_CREDS}"
-        sh "echo ${SERVICE_CREDS_USER}"
-        // git(credentialsId: "${SERVICE_CREDS}", url: 'git@github.com:chiruchiruchiru/MyWebpack.git')
+        git(credentialsId: 'github-credentials', url: 'git@github.com:chiruchiruchiru/MyWebpack.git')
       }
     }
   }
