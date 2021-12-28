@@ -1,12 +1,12 @@
 pipeline { // Declarative pipelineであることを宣言する
   environment {
-    AWS_ACCESS_KEY_ID = credentials('github-credentials')
+    SERVICE_CREDS = credentials('github-credentials')
   }
   agent any
   stages {
     stage("get resource") {
       steps {
-        git(credentialsId: "${AWS_ACCESS_KEY_ID_USER}", url: 'git@github.com:chiruchiruchiru/MyWebpack.git')
+        git(credentialsId: "${SERVICE_CREDS_USER}", url: 'git@github.com:chiruchiruchiru/MyWebpack.git')
       }
     }
   }
