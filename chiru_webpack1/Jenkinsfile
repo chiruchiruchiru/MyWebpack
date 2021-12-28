@@ -1,12 +1,13 @@
 pipeline { // Declarative pipelineであることを宣言する
+  environment {
+    git_url = "git@github.com:chiruchiruchiru/MyWebpack.git"
+    repo_name = "jenkins-pipeline-sample"
+  }
   agent any
   stages {
-
     stage("get resource") {
-      def git_url = "git@github.com:chiruchiruchiru/MyWebpack.git"
-      def repo_name = "jenkins-pipeline-sample"
 
-      def CLONE_RESULT = sh(script: "git clone ${git_url} ${repo_name}", returnStatus: true) == 0
+      CLONE_RESULT = sh(script: "git clone ${git_url} ${repo_name}", returnStatus: true) == 0
 
       try {
         if(!CLONE_RESULT) {
