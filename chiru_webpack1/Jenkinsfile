@@ -6,15 +6,16 @@ pipeline { // Declarative pipelineであることを宣言する
   agent any
   stages {
     stage("get resource") {
+      steps {
+        CLONE_RESULT = sh(script: "git clone ${git_url} ${repo_name}", returnStatus: true) == 0
 
-      CLONE_RESULT = sh(script: "git clone ${git_url} ${repo_name}", returnStatus: true) == 0
-
-      try {
-        if(!CLONE_RESULT) {
-          error "cloneに失敗しました"
+        try {
+          if(!CLONE_RESULT) {
+            error "cloneに失敗しました"
+          }
+        } catch (err) {
+          err_msg = "${err}"
         }
-      } catch (err) {
-        err_msg = "${err}"
       }
     }
   }
