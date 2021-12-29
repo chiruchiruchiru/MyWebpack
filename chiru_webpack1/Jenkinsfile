@@ -11,7 +11,7 @@ pipeline { // Declarative pipelineであることを宣言する
     }
     stage('Run test') {
       steps {
-          echo 'わああああ'
+        sh "pwd"
       }
     }
   }
