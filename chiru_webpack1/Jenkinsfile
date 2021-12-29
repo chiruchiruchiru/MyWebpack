@@ -8,9 +8,6 @@ pipeline { // Declarative pipelineであることを宣言する
       steps {
         git 'https://github.com/chiruchiruchiru/MyWebpack.git'
       }
-      steps {
-        echo "＼( 'ω')／ウオオオオオアアアーーーッ！"
-      }
     }
   }
 }
