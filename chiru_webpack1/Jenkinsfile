@@ -9,5 +9,10 @@ pipeline { // Declarative pipelineであることを宣言する
         git 'https://github.com/chiruchiruchiru/MyWebpack.git'
       }
     }
+    stage('Run test') {
+      steps {
+          echo 'わああああ'
+      }
+    }
   }
 }
