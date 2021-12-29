@@ -4,14 +4,9 @@ pipeline { // Declarative pipelineであることを宣言する
   }
   agent any
   stages {
-    stage('delete workspace') {
-        steps {
-            deleteDir()
-        }
-    }
     stage("get resource") {
       steps {
-        git(credentialsId: 'github-credentials', url: 'https://github.com/chiruchiruchiru/MyWebpack.git')
+        git 'https://github.com/chiruchiruchiru/MyWebpack.git'
       }
       steps {
         echo "＼( 'ω')／ウオオオオオアアアーーーッ！"
