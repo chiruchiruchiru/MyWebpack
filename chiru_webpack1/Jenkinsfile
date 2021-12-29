@@ -16,7 +16,7 @@ pipeline { // Declarative pipelineであることを宣言する
         sh "mkdir -p ./rrr/ttt"
       }
     }
-    stage('Run test') {
+    stage('clean up') {
       steps {
         cleanWs()
       }
