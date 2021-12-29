@@ -16,10 +16,8 @@ pipeline { // Declarative pipelineであることを宣言する
         sh "mkdir -p ./rrr/ttt"
       }
     }
-    stage('clean up') {
-      steps {
-        cleanWs()
-      }
+    stage('copy') {
+      copyArtifacts(projectName: 'simplePipeline');
     }
   }
 }
