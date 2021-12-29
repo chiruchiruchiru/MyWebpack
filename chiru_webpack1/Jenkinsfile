@@ -12,6 +12,8 @@ pipeline { // Declarative pipelineであることを宣言する
     stage('Run test') {
       steps {
         sh "pwd"
+        sh "ls"
+        ls -a
       }
     }
   }
