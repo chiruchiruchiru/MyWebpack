@@ -17,7 +17,9 @@ pipeline { // Declarative pipelineであることを宣言する
       }
     }
     stage('copy') {
-      copyArtifacts(projectName: 'simplePipeline');
+      steps {
+        copyArtifacts(projectName: 'simplePipeline');
+      }
     }
   }
 }
