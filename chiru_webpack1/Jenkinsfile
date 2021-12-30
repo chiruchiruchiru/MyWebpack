@@ -1,6 +1,6 @@
 def VAL="sample value"
 
-ipeline { // Declarative pipelineであることを宣言する
+pipeline { // Declarative pipelineであることを宣言する
   environment {
     SERVICE_CREDS = credentials('github-credentials')
   }
