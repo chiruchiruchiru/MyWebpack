@@ -24,10 +24,10 @@ pipeline { // Declarative pipelineであることを宣言する
         sh "mkdir -p ./rrr/ttt"
       }
     }
-    stage('copy') {
-      steps {
-        copyArtifacts(projectName: 'simplePipeline');
-      }
+    step('引渡し') {
+      build job: 'commit-release', parameters: [
+        [$class: 'StringParameterValue', name: 'text', value: "${text}"]
+      ]
     }
   }
 }
