@@ -27,7 +27,7 @@ pipeline { // Declarative pipelineであることを宣言する
     stage('引渡し') {
       steps {
         build job: 'commit-release', parameters: [
-        [$class: 'StringParameterValue', name: 'text', value: "${text}"]
+          [$class: 'StringParameterValue', name: 'text', value: 'test text']
         ]
       }
     }
