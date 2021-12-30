@@ -9,6 +9,11 @@ pipeline { // Declarative pipelineであることを宣言する
         git 'https://github.com/chiruchiruchiru/MyWebpack.git'
       }
     }
+    stage('echo') {
+      steps {
+        echo "${text}"
+      }
+    }
     stage('Run test') {
       steps {
         sh "pwd"
