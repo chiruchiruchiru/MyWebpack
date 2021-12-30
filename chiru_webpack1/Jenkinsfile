@@ -1,4 +1,6 @@
-pipeline { // Declarative pipelineであることを宣言する
+def VAL="sample value"
+
+ipeline { // Declarative pipelineであることを宣言する
   environment {
     SERVICE_CREDS = credentials('github-credentials')
   }
@@ -12,6 +14,7 @@ pipeline { // Declarative pipelineであることを宣言する
     stage('echo') {
       steps {
         echo "${text}"
+        echo "${VAL}"
       }
     }
     stage('Run test') {
