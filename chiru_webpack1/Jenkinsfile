@@ -2,7 +2,7 @@ def VAL="sample value"
 
 pipeline { // Declarative pipelineであることを宣言する
   environment {
-    SERVICE_CREDS = credentials('github-credentials')
+    fileName = "output.txt"
   }
   agent any
   stages {
@@ -13,7 +13,7 @@ pipeline { // Declarative pipelineであることを宣言する
     }
     stage('write file') {
       steps {
-          writeFile(file: "output.txt", text: "あああああ")
+          writeFile(file: fileName, text: "あああああ")
       }
     }
     stage('archive artifacts') {
