@@ -11,7 +11,7 @@ pipeline { // Declarative pipelineであることを宣言する
         git 'https://github.com/chiruchiruchiru/MyWebpack.git'
       }
     }
-    stage('Example Deploy') {
+    stage('confirm production') {
         when {
             expression {
                 GIT_BRANCH = sh(script: git rev-parse --abbrev-ref HEAD, returnStdout: true).trim()
@@ -22,7 +22,7 @@ pipeline { // Declarative pipelineであることを宣言する
             echo 'production'
         }
     }
-    stage('Example Deploy') {
+    stage('confirm develop') {
         when {
           not {
             expression {
