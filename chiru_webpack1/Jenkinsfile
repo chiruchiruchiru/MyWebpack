@@ -13,8 +13,11 @@ pipeline { // Declarative pipelineであることを宣言する
     }
     stage('echo') {
       steps {
-        echo "${text}"
-        echo "${VAL}"
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github-credentials',
+          usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+
+          sh 'echo uname=$USERNAME pwd=$PASSWORD'
+        }
       }
     }
     stage('Run test') {
