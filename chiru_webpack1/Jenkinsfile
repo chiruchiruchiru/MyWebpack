@@ -14,7 +14,7 @@ pipeline { // Declarative pipelineであることを宣言する
     stage('confirm production') {
         when {
             expression {
-                GIT_BRANCH = sh(script: git rev-parse --abbrev-ref HEAD, returnStdout: true).trim()
+                GIT_BRANCH = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
                 return GIT_BRANCH == 'master'
             }
         }
@@ -26,7 +26,7 @@ pipeline { // Declarative pipelineであることを宣言する
         when {
           not {
             expression {
-                GIT_BRANCH = sh(script: git rev-parse --abbrev-ref HEAD, returnStdout: true).trim()
+                GIT_BRANCH = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
                 return GIT_BRANCH == 'master'
             }
           }
