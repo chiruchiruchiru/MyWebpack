@@ -11,14 +11,15 @@ pipeline { // Declarative pipelineであることを宣言する
         git 'https://github.com/chiruchiruchiru/MyWebpack.git'
       }
     }
-    stage('echo') {
+    stage('write file') {
       steps {
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github-credentials',
-          usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-
-          sh 'echo uname=$USERNAME pwd=$PASSWORD'
-        }
+          writeFile(file: "output.txt", text: "あああああ")
       }
+    }
+    stage('archive artifacts') {
+        steps {
+            archiveArtifacts fileName
+        }
     }
     stage('Run test') {
       steps {
