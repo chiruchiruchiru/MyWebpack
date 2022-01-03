@@ -2,7 +2,7 @@ def VAL="sample value"
 
 pipeline { // Declarative pipelineであることを宣言する
   environment {
-    fileName = "./text/output.txt"
+    fileName = "text/output.txt"
   }
   agent any
   stages {
