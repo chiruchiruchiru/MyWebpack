@@ -2,7 +2,7 @@ def VAL="sample value"
 
 pipeline { // Declarative pipelineであることを宣言する
   environment {
-    fileName = "output.txt"
+    fileName = "./text/output.txt"
   }
   agent any
   stages {
@@ -52,12 +52,12 @@ pipeline { // Declarative pipelineであることを宣言する
         sh "mkdir -p ./rrr/ttt"
       }
     }
-    stage('引渡し') {
-      steps {
-        build job: 'commit-release', parameters: [
-          [$class: 'StringParameterValue', name: 'text', value: 'test text']
-        ]
-      }
-    }
+    // stage('引渡し') {
+    //   steps {
+    //     build job: 'commit-release', parameters: [
+    //       [$class: 'StringParameterValue', name: 'text', value: 'test text']
+    //     ]
+    //   }
+    // }
   }
 }
