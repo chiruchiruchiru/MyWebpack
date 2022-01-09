@@ -50,11 +50,6 @@ pipeline { // Declarative pipelineであることを宣言する
         sh "pwd"
       }
       steps {
-        if (sh (script: "pwd", returnStatus: false) == '0') {
-          echo "OK"
-        }
-      }
-      steps {
         sh "ls -a"
         sh "mkdir -p ./rrr/ttt"
       }
