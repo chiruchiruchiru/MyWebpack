@@ -42,7 +42,7 @@ pipeline { // Declarative pipelineであることを宣言する
     }
     stage('archive artifacts') {
         steps {
-            archiveArtifacts fileName
+          archiveArtifacts fileName
         }
     }
     stage('Run test') {
@@ -55,7 +55,7 @@ pipeline { // Declarative pipelineであることを宣言する
     stage('引渡し') {
       steps {
         build job: 'commit-release', parameters: [
-          [$class: 'StringParameterValue', name: 'text', value: '吾輩は猫だ']
+          string(name: 'TEXT', value: '吾輩は猫だ')
         ]
       }
     }
