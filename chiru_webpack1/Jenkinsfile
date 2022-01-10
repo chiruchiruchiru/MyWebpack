@@ -48,19 +48,18 @@ pipeline { // Declarative pipelineであることを宣言する
     stage('Run test') {
       steps {
         sh "pwd"
-      }
-      steps {
+        error('Fail')
         sh "ls -a"
         sh "mkdir -p ./rrr/ttt"
       }
     }
-    stage('引渡し') {
-      steps {
-        build job: 'commit-release', parameters: [
-          string(name: 'TEXT', value: '吾輩は猫だ')
-        ]
-      }
-    }
+    // stage('引渡し') {
+    //   steps {
+    //     build job: 'commit-release', parameters: [
+    //       string(name: 'TEXT', value: '吾輩は猫だ')
+    //     ]
+    //   }
+    // }
   }
   post {
     failure {
