@@ -49,9 +49,11 @@ pipeline { // Declarative pipelineであることを宣言する
       steps {
         script {
           sh "pwd"
-          def aaa = sh (script: "pwd", returnStatus: false)
+          def aaa = sh (script: "pwd", returnStdout: false)
+          def bbb = sh (script: "pwd", returnStatus: false)
 
           echo "${aaa}"
+          echo "${bbb}"
           if (sh (script: "pwd", returnStatus: false) == '0') {
             echo "OK"
           }
