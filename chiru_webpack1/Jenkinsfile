@@ -56,8 +56,7 @@ pipeline { // Declarative pipelineであることを宣言する
       steps {
         script {
           try {
-            // ココにエラーが起こりそうな処理を書く
-            error('失敗')
+            sh "almxsp"
           }
           catch(error) {
             echo "${error}"
