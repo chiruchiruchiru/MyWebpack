@@ -60,6 +60,7 @@ pipeline { // Declarative pipelineであることを宣言する
             error('失敗')
           }
           catch(error) {
+            echo "${error}"
             echo 'なにやらエラーです'
           }
           finally {
