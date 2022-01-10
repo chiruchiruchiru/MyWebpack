@@ -49,7 +49,7 @@ pipeline { // Declarative pipelineであることを宣言する
       steps {
         script {
           sh "pwd"
-          def aaa = sh (script: "pwd", returnStatus: false).trim()
+          def aaa = sh (script: "pwd", returnStatus: false)
 
           echo "${aaa}"
           if (sh (script: "pwd", returnStatus: false) == '0') {
