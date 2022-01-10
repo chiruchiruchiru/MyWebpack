@@ -32,7 +32,7 @@ pipeline { // Declarative pipelineであることを宣言する
           }
         }
         steps {
-            echo 'develop'
+          echo 'develop'
         }
     }
     stage('write file') {
@@ -49,8 +49,8 @@ pipeline { // Declarative pipelineであることを宣言する
       steps {
         script {
           sh "pwd"
-          def aaa = sh(script: 'pwd', returnStdout: true).trim()
-          def bbb = sh(script: 'pwd', returnStatus: true).trim()
+          def aaa = sh(script: 'pwd', returnStdout: true)
+          def bbb = sh(script: 'pwd', returnStatus: true)
 
           echo "${aaa}"
           echo "${bbb}"
