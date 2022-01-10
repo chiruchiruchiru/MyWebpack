@@ -52,13 +52,22 @@ pipeline { // Declarative pipelineであることを宣言する
         sh "mkdir -p ./rrr/ttt"
       }
     }
-    stage('引渡し') {
+    stage("Hello") {
+      options {
+          timeout(time: 5, unit: "SECONDS")
+      }
       steps {
-        build job: 'commit-release', parameters: [
-          string(name: 'TEXT', value: '吾輩は猫だ')
-        ]
+          sleep 10
+          echo "Hello World"
       }
     }
+    // stage('引渡し') {
+    //   steps {
+    //     build job: 'commit-release', parameters: [
+    //       string(name: 'TEXT', value: '吾輩は猫だ')
+    //     ]
+    //   }
+    // }
   }
   post {
     failure {
