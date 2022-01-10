@@ -57,7 +57,7 @@ pipeline { // Declarative pipelineであることを宣言する
           timeout(time: 5, unit: "SECONDS")
       }
       steps {
-          sleep 10
+          sleep 4
           echo "Hello World"
       }
     }
