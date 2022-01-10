@@ -47,9 +47,15 @@ pipeline { // Declarative pipelineであることを宣言する
     }
     stage('Run test') {
       steps {
-        sh "pwd"
-        sh "ls -a"
-        sh "mkdir -p ./rrr/ttt"
+        script {
+          sh "pwd"
+          if (sh (script: "pwd", returnStatus: false) == '0') {
+            echo "OK"
+          }
+          sh "ls -a"
+          sh "mkdir -p ./rrr/ttt"
+        }
+
       }
     }
     stage("Hello") {
