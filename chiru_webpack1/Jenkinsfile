@@ -53,12 +53,19 @@ pipeline { // Declarative pipelineであることを宣言する
       }
     }
     stage("Hello") {
-      options {
-          timeout(time: 5, unit: "SECONDS")
-      }
       steps {
-          sleep 4
-          echo "Hello World"
+        script {
+          try {
+            // ココにエラーが起こりそうな処理を書く
+            error('失敗')
+          }
+          catch(error) {
+            echo 'なにやらエラーです'
+          }
+          finally {
+            echo '成功時も失敗時も実行されます'
+          }
+        }
       }
     }
     // stage('引渡し') {
